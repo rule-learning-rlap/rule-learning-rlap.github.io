@@ -1,1 +1,250 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Unsupervised Learning of Neuro-symbolic Rules for Generalizable Context-aware Planning in Object Arrangement Tasks">
+  <meta name="keywords" content="RLAP, RB-MCTS">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rule Learner and Action Predictor</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Unsupervised Learning of Neuro-symbolic Rules for Generalizable Context-aware Planning in Object Arrangement Tasks</h1>
+          <h3 class="title is-4 conference-authors"><a target="_blank" href="https://2024.ieee-icra.org/">ICRA 2024</a></h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Siddhant Sharma<sup>1</sup>,</span>
+            <span class="author-block">
+              Shreshth Tuli<sup>1</sup>,</span>
+            <span class="author-block">
+              Rohan Paul<sup>2</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup> Work primarily done while at IIT Delhi </span>
+            <span class="author-block"><sup>2</sup> Affiliated with Computer Science and Engg. (CSE) and Yardi School of AI (ScAI), IIT Delhi</span>
+          </div>
+          <!-- TODO, need to change links -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/pdf/2211.06652"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2211.06652"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://drive.google.com/file/d/1LnkPNtO2AQjgIdLAIOw3PRUDooA9F9QI/view?usp=sharing"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Sids2k/RLAP"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered is-vcentered">
+        <!-- <div class="column is-half">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/v1.mp4"
+                type="video/mp4">
+      </video>
+    </div> -->
+        <div class="column">
+          <img src="./static/videos/fig1v2.png" alt="RLAP" width="100%"/>
+        </div>
+    <!-- <div class="column is-one-quarter">
+      <p class="has-text-centered">
+        Put the white dice above the yellow lego object and move the yellow cube on top of the white dice
+      <p>
+    </div> -->
+      </div>
+      <h2 class="subtitle has-text-centered">
+        RLAP is a novel rule learning methodology that learns the inherent rules of a domain from unsupervised and simple demonstrations. RB-MCTS is a rule-based planner that uses these learnt rules and their preconditions to quickly calculate plans in domains that are much more complex than those the model trained on.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            As robots tackle complex object arrangement tasks, it becomes imperative for them to be able to generalize to complex worlds and scale with number of objects. This work postulates that extracting action primitives, such as push operations, their pre-conditions and effects would enable strong generalization to unseen worlds. Hence, we factorize policy learning as inference of such generic rules, which act as strong priors for predicting actions given the world state. Learnt rules act as propositional knowledge and enable robots to reach goals in a zero-shot method by applying the rules independently and incrementally. However, obtaining hand-engineered rules, such as PDDL descriptions is hard, especially for unseen worlds. 
+          </p> 
+          <p>  
+            This work aims to learn generic, sparse, and context-aware rules that govern action primitives in robotic worlds through human demonstrations in simple domains. We demonstrate that our approach, namely RLAP, is able to extract rules without explicit supervision of rule labels and generate goal-reaching plans in complex Sokoban styled domains that scale with number of objects. RLAP furnishes significantly higher goal reaching rate and shorter planning times compared to the state-of-the-art techniques.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- TODO eventually we will have a paper video here. -->
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/GTsjNbbw0-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">High-Level Approach</h2>
+
+    <div class="columns is-centered">
+
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-4">Demonstrations</h3>
+          <p>
+            Model is trained on simple demonstrations as shown.
+          </p>
+          <video id="dollyzoom" autoplay muted loop playsinline height="100%">
+            <source src="./static/videos/DemonstrationExampleFast.mp4"
+                    type="video/mp4">
+          </video>
+          <p class="teaser has-text-centered">
+            Demonstration that shows one object being moved in the presence of another object without collision. 
+          </p>
+          <video id="dollyzoom" autoplay muted loop playsinline height="100%">
+            <source src="./static/videos/DemonstrationExample2Fast.mp4"
+                    type="video/mp4">
+          </video>
+          <p class="teaser has-text-centered">
+            Demonstration that shows one object being moved in the absence of another object. 
+          </p>
+        </div>
+      </div>
+
+      <div class="column">
+        <h3 class="title is-4">Plans</h3>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              Model is then tested on much more complex planning tasks in more complex world instances. We can see from the below example that the generalizable potential of our technique is very high. We are able to achieve this by learning rules from demonstrations (RLAP) and then planning with these learnt rules (RB-MCTS). Both these techniques are described in deeper depth in the paper.
+            </p>
+            <video id="matting-video" autoplay muted loop playsinline height="100%">
+              <source src="./static/videos/PlanningExampleFastest.mp4"
+                      type="video/mp4">
+            </video>
+            <p class="teaser has-text-centered">
+              The goal state dictates rotating the order of the top right corner blocks in an anti-clockwise fashion, and arranging the others in a line as shown above.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="section">
+  <div class="container is-max-desktop content">
+    <h2 class="title">References</h2>
+<p id="ref1">
+  <sup>[1]</sup>R. Paul, J. Arkin, N. Roy, and T. M Howard, “Efficient grounding of abstract spatial concepts for natural language interaction with robot manipulators,” in Robotics: Science and Systems Foundation, 2016
+</p>
+<p id="ref2">
+  <sup>[2]</sup>C. Paxton, Y. Bisk, J. Thomason, A. Byravan, and D. Fox, “Prospection: Interpretable plans from language by predicting the future,” in 2019 International Conference on Robotics and Automation (ICRA), IEEE, 2019, pp. 6942-6948
+</p>
+<p id="ref3">
+  <sup>[3]</sup>M. Shridhar, L. Manuelli, and D. Fox, “Cliport: What and where pathways for robotic manipulation,” in Conference on Robot Learning, PMLR, 2022, pp. 894-906
+</p>
+</div>
+</section> -->
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Citation</h2>
+    <pre><code>@inproceedings{RLAP2024,
+      title     = {Unsupervised Learning of Neuro-symbolic Rules for Generalizable Context-aware Planning in Object Arrangement Tasks},
+      author    = {Sharma, Siddhant and Tuli, Shreshth and Paul, Rohan},
+      booktitle = {IEEE International Conference on Robotics and Automation},
+      year      = {2024}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+            Website template borrowed from <a
+            href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
